@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashcard study</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./dist/script.js" defer></script>
+</head>
+<body>
+    <main class="gameContainer">
+        <p id="questionAnswer">Flash card example text.</p>
+        <div id="buttonsGame">
+            <button id="flip">Flip Card</button>
+            <button id="next">Next Card</button>
+        </div>
+    </main>
+    <form id="newCard">
+        <div class="userInput">
+            <input id="newCardQuestion" type="text" placeholder="New Card - Question" required>
+            <input id="newCardAnswer" type="text" placeholder="New Card - Answer" required>
+        </div>
+        <div class="buttonsAddCard">
+            <button id="addCardButton">Add Card</button>
+        </div>
+    </form>
+</body>
+</html>

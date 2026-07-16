@@ -5,14 +5,14 @@ document.getElementById(`next`)?.addEventListener("click", nextQuestion);
 
 const Questions = {
 
-    answer1: "NaN is a number",
-    question1: "What type is NaN(Not a number)",
+    question1: "What does 'typeof NaN' return in JavaScript?",
+    answer1: "It returns 'number' (even though NaN stands for 'Not a Number').",
 
-    answer2: "It checks if the given array has this variable.",
-    question2: "What does hasOwn() do?",
+    question2: "What does Object.hasOwn() do?",
+    answer2: "It checks if an object has a specific property as its own direct property, instead of inheriting it.",
 
-    answer3: "Its useful to use an array when you want to manage multiple variables under one name. Like using a light/darkmode inside the user setting!",
-    question3: "When is a array useful?"
+    question3: "When is an array useful?",
+    answer3: "It is useful when you want to store an ordered list of multiple values under a single variable, like a list of high scores or a collection of flashcards."
 }
 
 let isFlipped = false;

@@ -2,6 +2,13 @@
 var _a, _b;
 (_a = document.getElementById(`flip`)) === null || _a === void 0 ? void 0 : _a.addEventListener("click", flipButton);
 (_b = document.getElementById(`next`)) === null || _b === void 0 ? void 0 : _b.addEventListener("click", nextQuestion);
+document.addEventListener("DOMContentLoaded", () => {
+    let paragraph = document.getElementById("questionAnswer");
+    let question = Questions.question1;
+    // @ts-ignore
+    paragraph.textContent = `${question}`;
+    return;
+});
 const Questions = {
     question1: "What does 'typeof NaN' return in JavaScript?",
     answer1: "It returns 'number' (even though NaN stands for 'Not a Number').",

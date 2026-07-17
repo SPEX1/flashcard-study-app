@@ -1,6 +1,14 @@
 document.getElementById(`flip`)?.addEventListener("click", flipButton);
 document.getElementById(`next`)?.addEventListener("click", nextQuestion);
 
+document.addEventListener("DOMContentLoaded", () => {
+    let paragraph = document.getElementById("questionAnswer");
+    let question = Questions.question1;
+    // @ts-ignore
+    paragraph.textContent = `${question}`
+    return;
+});
+
 
 
 const Questions = {

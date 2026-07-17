@@ -89,6 +89,20 @@ body{
     box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
 }
 
+#resetCardsButton{
+    background-color: dodgerblue;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#resetCardsButton:hover{
+    color: beige;
+    -webkit-box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
+    box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
+}
+
 .userInput{
     display: flex;
     flex-direction: row;
@@ -116,4 +130,25 @@ body{
 
 #newCardAnswer:hover{
     background-color: lightgray;
+}
+
+#resetContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+#resetCardsButton{
+    background-color: red;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 20px;
+    font-weight: bold;
+}
+#resetCardsButton:hover{
+    color: beige;
+    -webkit-box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
+    box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
 }

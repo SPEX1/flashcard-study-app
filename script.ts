@@ -1,13 +1,17 @@
-document.getElementById(`flip`)?.addEventListener("click", flipButton);
-document.getElementById(`next`)?.addEventListener("click", nextQuestion);
+document.getElementById(`previousCard`)?.addEventListener("click", previousQuestion);
+document.getElementById(`nextCard`)?.addEventListener("click", nextQuestion);
 document.getElementById(`addCardButton`)?.addEventListener("click", addQuestion);
 document.getElementById(`resetCardsButton`)?.addEventListener("click", resetCards);
 
 document.addEventListener("DOMContentLoaded", () => {
-    let paragraph = document.getElementById("questionAnswer");
+    let front = document.getElementById("question");
+    let back = document.getElementById("answer");
     let question = Questions.question1;
+    let answer = Questions.answer1;
     // @ts-ignore
-    paragraph.textContent = `${question}`
+    front.textContent = `${question}`
+    // @ts-ignore
+    back.textContent = `${answer}`
     return;
 });
 
@@ -16,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const defaultQuestions = {
 
     question1: "This is a default question. Please add your own!",
-    answer1: "To add an question simply use the form below :) It will be saved in your browser cache!').",
+    answer1: "To add an question simply use the form below :) (It will be saved in your browser cache!').",
 }
 let Questions = JSON.parse(localStorage.getItem("questions") || JSON.stringify(defaultQuestions));
 
@@ -27,7 +31,9 @@ let isDefaultQuestion = parseInt(localStorage.getItem("isDefaultQuestion") || "1
 const selectQuestion = () => `Questions.question${currentQuestion}`;
 const selectAnswer = () => `Questions.answer${currentQuestion}`;
 
-function flipButton(){
+// commented out as it is not needed anymore
+
+/* function flipButton(){
     let paragraph = document.getElementById("questionAnswer");
     let answer = eval(selectAnswer());
     let question = eval(selectQuestion());
@@ -44,25 +50,58 @@ function flipButton(){
         isFlipped = false;
         return isFlipped;
     }
-}
+} */
 
 function nextQuestion(){
-    let paragraph = document.getElementById("questionAnswer");
-    isFlipped = false;
+    let front = document.getElementById("question");
+    let back = document.getElementById("answer");
     let question;
+    let answer;
     if (currentQuestion < maxQuestions){
         currentQuestion = currentQuestion + 1;
         question = eval(selectQuestion());
+        answer = eval(selectAnswer())
         // @ts-ignore
-        paragraph.textContent = `${question}`
+        front.textContent = `${question}`
+        // @ts-ignore
+        back.textContent = `${answer}`
         console.log("<");
         return currentQuestion;
     }else if(currentQuestion === maxQuestions){
         currentQuestion = 1;
         question = eval(selectQuestion());
+        answer = eval(selectAnswer())
         // @ts-ignore
-        paragraph.textContent = `${question}`
+        front.textContent = `${question}`
+        // @ts-ignore
+        back.textContent = `${answer}`
         console.log("=");
+        return currentQuestion;
+    }
+}
+
+function previousQuestion(){
+    let front = document.getElementById("question");
+    let back = document.getElementById("answer");
+    let question;
+    let answer;
+    if (currentQuestion > 1){
+        currentQuestion = currentQuestion - 1;
+        question = eval(selectQuestion());
+        answer = eval(selectAnswer())
+        // @ts-ignore
+        front.textContent = `${question}`
+        // @ts-ignore
+        back.textContent = `${answer}`
+        return currentQuestion;
+    }else if(currentQuestion === 1){
+        currentQuestion = maxQuestions.valueOf();
+        question = eval(selectQuestion());
+        answer = eval(selectAnswer())
+        // @ts-ignore
+        front.textContent = `${question}`
+        // @ts-ignore
+        back.textContent = `${answer}`
         return currentQuestion;
     }
 }
@@ -105,12 +144,15 @@ function addQuestion(){
 }
 
 function resetCards(){
-    let paragraph = document.getElementById("questionAnswer");
+    let front = document.getElementById("question");
+    let back = document.getElementById("answer");
     Questions = defaultQuestions;
     maxQuestions = 1;
     isDefaultQuestion = 1;
     // @ts-ignore
-    paragraph.textContent = `${Questions.question1}`;
+    front.textContent = `${Questions.question1}`;
+    // @ts-ignore
+    back.textContent = `${Questions.answer1}`;
     localStorage.setItem("isDefaultQuestion", isDefaultQuestion.toString());
     localStorage.setItem("maxQuestions", JSON.stringify(maxQuestions));
     localStorage.setItem("questions", JSON.stringify(Questions));

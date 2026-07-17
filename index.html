@@ -7,13 +7,22 @@
     <script src="./dist/script.js" defer></script>
 </head>
 <body>
-    <main class="gameContainer">
-        <p id="questionAnswer">Flash card example text.</p>
-        <div id="buttonsGame">
-            <button id="flip">Flip Card</button>
-            <button id="next">Next Card</button>
-        </div>
-    </main>
+    <div class="cardLayoutRow">
+        <h1 id="previousCard"> < </h1>
+        <main class="gameContainer">
+            <div class="card">
+                <div class="cardFront">
+                    <h3 class="cardFrontTitle">Question:</h3>
+                    <p id="question">Test</p>
+                </div>
+                <div class="cardBack">
+                    <h3 class="cardBackTitle">Answer:</h3>
+                    <p id="answer">Test</p>
+                </div>
+            </div>
+        </main>
+        <h1 id="nextCard"> > </h1>
+    </div>
     <form id="newCard">
         <div class="userInput">
             <input id="newCardQuestion" type="text" placeholder="New Card - Question" required>

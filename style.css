@@ -1,56 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Das ist der Lebensretter! */
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: gray;
+    background-image: url('./img/wpsite.jpg');
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .gameContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    border-radius: 30px;
-    border: 10px solid mediumseagreen;
-
-    width: 400px;
+    width: 350px;
     height: 500px;
-    margin: auto;
-
-    background-color: darkseagreen;
-    -webkit-box-shadow: 9px 5px 26px 3px rgba(0,0,0,0.41);
-    box-shadow: 9px 5px 26px 3px rgba(0,0,0,0.41);
+    perspective: 1000px;
 }
 
-#questionAnswer{
-    justify-content: center;
-    font-weight: bold;
-    padding: 10px;
-    font-size: 20px;
-}
-
-#buttonsGame{
+.cardLayoutRow {
     display: flex;
     flex-direction: row;
-    gap: 20px;
-
-    margin-top: auto;
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: auto;
 }
 
-#flip{
-    background-color: dodgerblue;
-    border-radius: 5px;
-    border: 2px solid black;
-    font-size: 20px;
-    font-weight: bold;
+.card{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
 }
 
-#next{
-    background-color: dodgerblue;
-    border-radius: 5px;
-    border: 2px solid black;
-    font-size: 20px;
-    font-weight: bold;
+.gameContainer:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+
+}
+
+.cardFront,
+.cardBack{
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.5);
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.cardBack{
+    background-color: rgb(193, 179, 146);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 5px rgb(123, 108, 75) solid;
+}
+
+.cardFront{
+    background-image: url("./img/card back.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 5px rgb(123, 108, 75) solid;
+}
+
+
+#nextCard,
+#previousCard{
+    cursor: pointer;        /* Makes it look clickable */
+    user-select: none;      /* Prevents text highlighting on click */
+    font-size: 40px;        /* Increases arrow size for better visuals */
+    color: black;           /* Stands out against the background gradient */
+    transition: 0.25s;
+}
+
+#nextCard:hover,
+#previousCard:hover{
+    transform: scale(1.2);
+    text-shadow: 10px 10px 10px rgba(50, 50, 50, 0.5);
 
 }
 
@@ -70,8 +111,8 @@ body{
     display: flex;
     flex-direction: column;
     padding-top: 50px;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 
@@ -109,23 +150,33 @@ body{
     align-items: center;
     justify-content: center;
     gap: 20px;
-
 }
 
 #newCardQuestion{
-    border-radius: 5px;
-    border: 2px solid black;
     font-size: 20px;
-}
-
-#newCardQuestion:hover{
-    background-color: lightgray;
+    background: rgba(0, 0, 0, 0.49);
+    border-radius: 3px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border: 1px solid rgba(0, 0, 0, 1);
+    color: white;
 }
 
 #newCardAnswer{
-    border-radius: 5px;
-    border: 2px solid black;
+    background: rgba(0, 0, 0, 0.49);
+    border-radius: 3px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border: 1px solid rgba(0, 0, 0, 1);
     font-size: 20px;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+    opacity: 80%; /* Firefox */
 }
 
 #newCardAnswer:hover{

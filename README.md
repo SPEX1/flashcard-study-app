@@ -10,4 +10,4 @@ Features:
 - [ ] Question shuffle
 
 
-   ![site preview](https://github.com/SPEX1/flashcard-study-app/blob/master/img/sitepreview.png)
+   ![site preview](https://github.com/SPEX1/flashcard-study-app/blob/master/img/previewgif.gif)

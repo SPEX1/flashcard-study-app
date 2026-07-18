@@ -6,9 +6,8 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url('./img/wpsite.jpg');
+    background-image: url('./img/wpbackground.jpg');
     background-size: cover;
-    backdrop-filter: blur(3px);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -36,8 +35,30 @@ body{
     height: 100%;
     width: 100%;
     position: relative;
-    transition: transform 1500ms;
+    transition: transform 1000ms;
     transform-style: preserve-3d;
+}
+
+.card.animationFlip{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 500ms;
+    transform-style: preserve-3d;
+    transform: rotateY(360deg);
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.card.animationFlipBack{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 500ms;
+    transform-style: preserve-3d;
+    transform: rotateY(-360deg);
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 .gameContainer:hover > .card{

@@ -6,7 +6,7 @@ Features:
 - [x] Adding questions
 - [x] Local browser caching questions for future use
 - [x] Resetting the questions
-- [ ] Visual representation(for example: 1/20)
+- [x] Visual representation(for example: 1/20)
 - [ ] Question shuffle
 
 

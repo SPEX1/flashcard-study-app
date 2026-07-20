@@ -128,38 +128,20 @@ body{
     box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
 }
 
-#newCard{
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
 #addCardButton{
-    background-color: dodgerblue;
-    border-radius: 5px;
-    border: 2px solid black;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.49);
+    border-radius: 3px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border: 1px solid rgba(0, 0, 0, 1);
     font-size: 20px;
-    font-weight: bold;
+    color: white;
+    width: 150px;
 }
 
 #addCardButton:hover{
-    color: beige;
-    -webkit-box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
-    box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
-}
-
-#resetCardsButton{
-    background-color: dodgerblue;
-    border-radius: 5px;
-    border: 2px solid black;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-#resetCardsButton:hover{
     color: beige;
     -webkit-box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
     box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
@@ -171,6 +153,7 @@ body{
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding: 5px;
 }
 
 #newCardQuestion{
@@ -200,27 +183,33 @@ body{
     opacity: 80%; /* Firefox */
 }
 
-#newCardAnswer:hover{
-    background-color: lightgray;
-}
-
-#resetContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 40px;
-}
-
 #resetCardsButton{
-    background-color: red;
-    border-radius: 5px;
-    border: 2px solid black;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.49);
+    border-radius: 3px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.1px);
+    -webkit-backdrop-filter: blur(13.1px);
+    border: 1px solid rgba(0, 0, 0, 1);
     font-size: 20px;
-    font-weight: bold;
+    color: white;
+    width: 150px;
 }
 #resetCardsButton:hover{
     color: beige;
     -webkit-box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
     box-shadow: inset 0px 0px 25px 3px rgba(0,0,0,0.64);
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 5px;
+}
+
+#whereAt{
+    padding: 10px;
 }

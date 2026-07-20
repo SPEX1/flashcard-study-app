@@ -34,74 +34,43 @@ function nextQuestion() {
     let whereAt = document.getElementById("whereAt");
     let question;
     let answer;
+    const container = document.querySelector(".card");
+    // @ts-ignore
+    if (container.classList.contains("animationFlip")) {
+        return;
+    }
     if (currentQuestion < maxQuestions && maxQuestions > 1) {
         currentQuestion = currentQuestion + 1;
         question = eval(selectQuestion());
         answer = eval(selectAnswer());
-        const container = document.querySelector(".card");
-        // @ts-ignore
-        if (container.classList.contains("animationFlip")) {
-            return;
-        }
-        else {
-            // @ts-ignore
-            container.classList.add("animationFlip");
-            // @ts-ignore
-            container.addEventListener("transitionend", (event) => {
-                if (event.propertyName !== "transform")
-                    return;
-                // @ts-ignore
-                container.style.transition = "none";
-                // @ts-ignore
-                container.classList.remove("animationFlip");
-                // @ts-ignore
-                container.offsetHeight;
-                // @ts-ignore
-                container.style.transition = "";
-            }, { once: true });
-            // @ts-ignore
-            front.textContent = `${question}`;
-            // @ts-ignore
-            back.textContent = `${answer}`;
-            // @ts-ignore
-            whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
-            return currentQuestion;
-        }
     }
     else if (currentQuestion === maxQuestions && maxQuestions > 1) {
         currentQuestion = 1;
         question = eval(selectQuestion());
         answer = eval(selectAnswer());
-        const container = document.querySelector(".card");
-        // @ts-ignore
-        if (container.classList.contains("animationFlip")) {
-            return;
-        }
-        else {
-            // @ts-ignore
-            container.classList.add("animationFlip");
-            // @ts-ignore
-            container.addEventListener("transitionend", (event) => {
-                if (event.propertyName !== "transform")
-                    return;
-                // @ts-ignore
-                container.style.transition = "none";
-                // @ts-ignore
-                container.classList.remove("animationFlip");
-                // @ts-ignore
-                container.offsetHeight;
-                // @ts-ignore
-                container.style.transition = "";
-            }, { once: true });
-            // @ts-ignore
-            front.textContent = `${question}`;
-            // @ts-ignore
-            back.textContent = `${answer}`;
-            // @ts-ignore
-            whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
-            return currentQuestion;
-        }
     }
+    // @ts-ignore
+    container.classList.add("animationFlipBack");
+    // @ts-ignore
+    container.addEventListener("transitionend", (event) => {
+        if (event.propertyName !== "transform")
+            return;
+        // @ts-ignore
+        container.style.transition = "none";
+        // @ts-ignore
+        container.classList.remove("animationFlipBack");
+        // @ts-ignore
+        container.offsetHeight;
+        // @ts-ignore
+        container.style.transition = "";
+    }, { once: true });
+    // @ts-ignore
+    front.textContent = `${question}`;
+    // @ts-ignore
+    back.textContent = `${answer}`;
+    // @ts-ignore
+    whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
+    return currentQuestion;
 }
 function previousQuestion() {
     let front = document.getElementById("question");
@@ -109,74 +78,43 @@ function previousQuestion() {
     let whereAt = document.getElementById("whereAt");
     let question;
     let answer;
+    const container = document.querySelector(".card");
+    // @ts-ignore
+    if (container.classList.contains("animationFlip")) {
+        return;
+    }
     if (currentQuestion > 1 && maxQuestions > 1) {
         currentQuestion = currentQuestion - 1;
         question = eval(selectQuestion());
         answer = eval(selectAnswer());
-        const container = document.querySelector(".card");
-        // @ts-ignore
-        if (container.classList.contains("animationFlip")) {
-            return;
-        }
-        else {
-            // @ts-ignore
-            container.classList.add("animationFlipBack");
-            // @ts-ignore
-            container.addEventListener("transitionend", (event) => {
-                if (event.propertyName !== "transform")
-                    return;
-                // @ts-ignore
-                container.style.transition = "none";
-                // @ts-ignore
-                container.classList.remove("animationFlipBack");
-                // @ts-ignore
-                container.offsetHeight;
-                // @ts-ignore
-                container.style.transition = "";
-            }, { once: true });
-            // @ts-ignore
-            front.textContent = `${question}`;
-            // @ts-ignore
-            back.textContent = `${answer}`;
-            // @ts-ignore
-            whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
-            return currentQuestion;
-        }
     }
     else if (currentQuestion === 1 && maxQuestions > 1) {
         currentQuestion = maxQuestions.valueOf();
         question = eval(selectQuestion());
         answer = eval(selectAnswer());
-        const container = document.querySelector(".card");
-        // @ts-ignore
-        if (container.classList.contains("animationFlip")) {
-            return;
-        }
-        else {
-            // @ts-ignore
-            container.classList.add("animationFlipBack");
-            // @ts-ignore
-            container.addEventListener("transitionend", (event) => {
-                if (event.propertyName !== "transform")
-                    return;
-                // @ts-ignore
-                container.style.transition = "none";
-                // @ts-ignore
-                container.classList.remove("animationFlipBack");
-                // @ts-ignore
-                container.offsetHeight;
-                // @ts-ignore
-                container.style.transition = "";
-            }, { once: true });
-            // @ts-ignore
-            front.textContent = `${question}`;
-            // @ts-ignore
-            back.textContent = `${answer}`;
-            // @ts-ignore
-            whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
-            return currentQuestion;
-        }
     }
+    // @ts-ignore
+    container.classList.add("animationFlipBack");
+    // @ts-ignore
+    container.addEventListener("transitionend", (event) => {
+        if (event.propertyName !== "transform")
+            return;
+        // @ts-ignore
+        container.style.transition = "none";
+        // @ts-ignore
+        container.classList.remove("animationFlipBack");
+        // @ts-ignore
+        container.offsetHeight;
+        // @ts-ignore
+        container.style.transition = "";
+    }, { once: true });
+    // @ts-ignore
+    front.textContent = `${question}`;
+    // @ts-ignore
+    back.textContent = `${answer}`;
+    // @ts-ignore
+    whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
+    return currentQuestion;
 }
 function addQuestion() {
     let questionInput = document.getElementById("newCardQuestion");
@@ -210,10 +148,6 @@ function addQuestion() {
         // @ts-ignore
         whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
         return Questions;
-    }
-    else {
-        alert("Please fill out the WHOLE form!");
-        return;
     }
 }
 function resetCards() {

@@ -1,10 +1,10 @@
 "use strict";
-var _a, _b, _c, _d;
-(_a = document.getElementById(`previousCard`)) === null || _a === void 0 ? void 0 : _a.addEventListener("click", previousQuestion);
-(_b = document.getElementById(`nextCard`)) === null || _b === void 0 ? void 0 : _b.addEventListener("click", nextQuestion);
-(_c = document.getElementById(`addCardButton`)) === null || _c === void 0 ? void 0 : _c.addEventListener("click", addQuestion);
-(_d = document.getElementById(`resetCardsButton`)) === null || _d === void 0 ? void 0 : _d.addEventListener("click", resetCards);
 document.addEventListener("DOMContentLoaded", () => {
+    var _a, _b, _c, _d;
+    (_a = document.getElementById(`previousCard`)) === null || _a === void 0 ? void 0 : _a.addEventListener("click", previousQuestion);
+    (_b = document.getElementById(`nextCard`)) === null || _b === void 0 ? void 0 : _b.addEventListener("click", nextQuestion);
+    (_c = document.getElementById(`addCardButton`)) === null || _c === void 0 ? void 0 : _c.addEventListener("click", addQuestion);
+    (_d = document.getElementById(`resetCardsButton`)) === null || _d === void 0 ? void 0 : _d.addEventListener("click", resetCards);
     let front = document.getElementById("question");
     let back = document.getElementById("answer");
     let question = Questions.question1;
@@ -36,7 +36,7 @@ function nextQuestion() {
     let answer;
     const container = document.querySelector(".card");
     // @ts-ignore
-    if (container.classList.contains("animationFlip")) {
+    if (container.classList.contains("animationFlip") || maxQuestions === 1) {
         return;
     }
     if (currentQuestion < maxQuestions && maxQuestions > 1) {
@@ -80,7 +80,7 @@ function previousQuestion() {
     let answer;
     const container = document.querySelector(".card");
     // @ts-ignore
-    if (container.classList.contains("animationFlip")) {
+    if (container.classList.contains("animationFlip") || maxQuestions === 1) {
         return;
     }
     if (currentQuestion > 1 && maxQuestions > 1) {
@@ -147,6 +147,14 @@ function addQuestion() {
         localStorage.setItem("maxQuestions", maxQuestions.toString());
         // @ts-ignore
         whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
+        if (maxQuestions === 1) {
+            let front = document.getElementById("question");
+            let back = document.getElementById("answer");
+            // @ts-ignore
+            front.textContent = `${Questions.question1}`;
+            // @ts-ignore
+            back.textContent = `${Questions.answer1}`;
+        }
         return Questions;
     }
 }
@@ -154,7 +162,7 @@ function resetCards() {
     let front = document.getElementById("question");
     let back = document.getElementById("answer");
     let whereAt = document.getElementById("whereAt");
-    Questions = defaultQuestions;
+    Questions = Object.assign({}, defaultQuestions);
     maxQuestions = 1;
     isDefaultQuestion = 1;
     currentQuestion = 1;

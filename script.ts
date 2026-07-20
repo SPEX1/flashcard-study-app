@@ -1,9 +1,8 @@
-document.getElementById(`previousCard`)?.addEventListener("click", previousQuestion);
-document.getElementById(`nextCard`)?.addEventListener("click", nextQuestion);
-document.getElementById(`addCardButton`)?.addEventListener("click", addQuestion);
-document.getElementById(`resetCardsButton`)?.addEventListener("click", resetCards);
-
 document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById(`previousCard`)?.addEventListener("click", previousQuestion);
+    document.getElementById(`nextCard`)?.addEventListener("click", nextQuestion);
+    document.getElementById(`addCardButton`)?.addEventListener("click", addQuestion);
+    document.getElementById(`resetCardsButton`)?.addEventListener("click", resetCards);
     let front = document.getElementById("question");
     let back = document.getElementById("answer");
     let question = Questions.question1;
@@ -41,7 +40,7 @@ function nextQuestion() {
     let answer;
     const container = document.querySelector(".card")
     // @ts-ignore
-    if(container.classList.contains("animationFlip")){
+    if(container.classList.contains("animationFlip") || maxQuestions === 1){
         return;
     }
     if (currentQuestion < maxQuestions && maxQuestions > 1) {
@@ -86,7 +85,7 @@ function previousQuestion() {
     let answer;
     const container = document.querySelector(".card")
     // @ts-ignore
-    if(container.classList.contains("animationFlip")){
+    if(container.classList.contains("animationFlip") || maxQuestions === 1){
         return;
     }
     if (currentQuestion > 1 && maxQuestions > 1) {
@@ -157,6 +156,14 @@ function addQuestion(){
         localStorage.setItem("maxQuestions", maxQuestions.toString());
         // @ts-ignore
         whereAt.textContent = `${currentQuestion} / ${maxQuestions}`;
+        if(maxQuestions === 1){
+            let front = document.getElementById("question");
+            let back = document.getElementById("answer");
+            // @ts-ignore
+            front.textContent = `${Questions.question1}`;
+            // @ts-ignore
+            back.textContent = `${Questions.answer1}`;
+        }
         return Questions;
     }
 }
@@ -165,7 +172,7 @@ function resetCards(){
     let front = document.getElementById("question");
     let back = document.getElementById("answer");
     let whereAt = document.getElementById("whereAt");
-    Questions = defaultQuestions;
+    Questions = { ...defaultQuestions };
     maxQuestions = 1;
     isDefaultQuestion = 1;
     currentQuestion = 1;

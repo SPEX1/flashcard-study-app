@@ -7,9 +7,6 @@ Features:
 - [x] Local browser caching questions for future use
 - [x] Resetting the questions
 - [x] Visual representation(for example: 1/20)
-- [ ] Question shuffle
-
-[Live website preview!](https://flashy.twohandz.de)
 
 
-   ![site preview](https://github.com/SPEX1/flashcard-study-app/blob/master/img/previewgif.gif)
+   ![site preview](https://github.com/SPEX1/flashcard-study-app/blob/master/img/newpreviewgif.gif)
